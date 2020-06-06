@@ -16,8 +16,8 @@ import { LanguageTranslatorService } from './language-translator.service';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { StorageService } from './storage.service';
-import { LocalService } from './local.service';
+// import { StorageService } from './storage.service';
+// import { LocalService } from './local.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ import { LocalService } from './local.service';
   })
     
   ],
-  providers: [LanguageTranslatorService,StorageService,LocalService],
+  providers: [LanguageTranslatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

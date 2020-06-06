@@ -29,7 +29,7 @@ export class MeetingDetailsComponent implements OnInit {
   retriveData : Array<any> = []
   constructor(
     private formBuilder: FormBuilder,
-    private localService: LocalService
+    // private localService: LocalService
 
     // private storageService: StorageServiceService
 ) { }
@@ -90,7 +90,6 @@ export class MeetingDetailsComponent implements OnInit {
     localStorage.setItem(this.key, JSON.stringify(data));
     this.retriveData.push(JSON.parse(localStorage.getItem(this.key)));
     this.meetingDetailForm.reset();
-    this.localService.clearToken();
 
   }
 

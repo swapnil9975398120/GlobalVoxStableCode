@@ -10,15 +10,15 @@ export class LocalService {
   // Set the json data to local storage
 setJsonValue(key: string, value: any) {
   debugger
-  this.storageService.secureStorage.setItem(key, value);
+  // this.storageService.secureStorage.setItem(key, value);
 }
 // Get the json value from local storage
 getJsonValue(key: string) {
-  return this.storageService.secureStorage.getItem(key);
+  // return this.storageService.secureStorage.getItem(key);
 }
 // Clear the local storage
 clearToken() {
-  return this.storageService.secureStorage.clear();
+  // return this.storageService.secureStorage.clear();
 }
  
 
