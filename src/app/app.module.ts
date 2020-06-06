@@ -11,6 +11,8 @@ import {InputSwitchModule} from 'primeng-lts/inputswitch';
 import { ButtonModule } from 'primeng-lts/components/button/button';
 import { DropdownModule } from 'primeng-lts/components/dropdown/dropdown';
 import { LanguageTranslatorService } from './language-translator.service';
+import { GrowlModule } from 'primeng-lts/components/growl/growl';
+
 // import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 // import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -35,6 +37,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     ButtonModule,
     DropdownModule,
     HttpClientModule,
+    GrowlModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

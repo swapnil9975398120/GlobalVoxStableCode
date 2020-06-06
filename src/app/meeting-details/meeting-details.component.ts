@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AppSetting } from '../app-setting';
 import * as moment from 'moment'
 import { LocalService } from '../local.service';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 //import { StorageServiceService } from '../storage-service.service';
 // import { AppSettings } from '../../../shared/app.settings';
@@ -14,8 +15,7 @@ import { LocalService } from '../local.service';
 })
 export class MeetingDetailsComponent implements OnInit {
   meetingDetailForm : FormGroup;
-  // minDate: any;
-  // maxDate: any;
+  message: Message[] = [];
   dateFormat;
   checked:boolean;
   labelCancel = "Cancel";
@@ -29,9 +29,7 @@ export class MeetingDetailsComponent implements OnInit {
   retriveData : Array<any> = []
   constructor(
     private formBuilder: FormBuilder,
-    // private localService: LocalService
 
-    // private storageService: StorageServiceService
 ) { }
 
   ngOnInit() {
@@ -87,6 +85,8 @@ export class MeetingDetailsComponent implements OnInit {
      
      //Decryption
     // const user = this.localService.getJsonValue('user');
+    // this.showMessage('Success','Meeting Details submitted successfully.')
+
     localStorage.setItem(this.key, JSON.stringify(data));
     this.retriveData.push(JSON.parse(localStorage.getItem(this.key)));
     this.meetingDetailForm.reset();
@@ -100,4 +100,9 @@ export class MeetingDetailsComponent implements OnInit {
   cancel() {
      this.meetingDetailForm.reset();
   }
+
+  // showMessage(severity, message) {
+  //   this.message = [];
+  //   this.message.push({ severity: severity.toLowerCase(), summary: severity, detail: message });
+  // }
 }
