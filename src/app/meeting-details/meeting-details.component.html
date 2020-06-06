@@ -1,0 +1,84 @@
+<div class="container">
+<form [formGroup]="meetingDetailForm">
+    <div class="row">
+        <div class=" col-md-6">      
+            <p-dropdown [options]="timeZoneOptions" formControlName="timeZone" [(ngModel)]="timeZone"  (onChange)="onTimeZoneChange($event)" placeholder="Time Zone">
+            </p-dropdown>
+        </div>
+        <div class="col-md-6">
+            <div class=" dropdown right">
+                <p-inputSwitch formControlName="checked" [(ngModel)]="checked"></p-inputSwitch>
+         </div> 
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-md-2"></div>
+       <div class="col-md-8">      
+           <!-- form start -->
+           <h3>Meeting Details</h3>
+             <div class="form-group">
+                <label for="exampleInputEmail1">Full Name</label>
+                <input type="text" class="form-control" formControlName="fullName" id="exampleInputEmail1" placeholder="Email">
+                <div class="form-errors"
+                        *ngIf="meetingDetailForm.controls.fullName.errors  && (meetingDetailForm.controls.fullName.dirty || meetingDetailForm.controls.fullName.touched)">
+                <div [hidden]="!meetingDetailForm.controls.fullName.errors.required" translate>
+                    Full name is required.
+                </div>              
+               </div>
+             </div>
+     
+            <div class="form-group col-md-4">
+              <div class="form-label">
+                 <label for="exampleInputPassword1">Date</label>
+              </div>
+              <div class="">  
+                <p-calendar [minDate]="minDate" formControlName="meetingDate" [showIcon]="true" dateFormat="{{dateFormat}}"
+                   [selectOtherMonths]="true" (onSelect)='onSelectStartDate()'></p-calendar>
+              </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="exampleInputPassword1">Start Time</label>
+                <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
+                <p-calendar formControlName="startTime"  utc="true" [defaultDate]="minDate" dateFormat="{{dateFormat}}" [timeOnly]="true" [showIcon]="true" 
+                    (onSelect)="getTime($event)" placeholder="Start Time"></p-calendar>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="exampleInputPassword1">End Time</label>
+                <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
+                <p-calendar formControlName="endTime"  utc="true" [defaultDate]="minDate" dateFormat="{{dateFormat}}" [timeOnly]="true" [showIcon]="true" 
+                (onSelect)="getTime($event)" placeholder="End Time"></p-calendar>
+         
+            </div>
+          <div class="row right">
+            <button type="butoon" (click)="cancel()" (click)="cancel()" class="btn btn-default">Cancel</button>
+            <button type="submit" (click)="addForm()" style="margin-left: 10px; color: blue;" [disabled]="!meetingDetailForm.valid" class="btn btn-default">Submit</button>
+          </div>
+        </div>
+    <div class="col-md-2"></div>
+  </div>
+  <br><br>
+  <div class="container">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Meeting Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let data of retriveData">
+                <td>{{data.fullName}}</td>
+                <td>{{data.meetingDate}}</td>
+                <td>{{data.startTime}}</td>
+                <td>{{data.endTime}}</td>
+
+            </tr>            
+          </tbody>
+        </table>
+  </div>
+</form>
+</div>
