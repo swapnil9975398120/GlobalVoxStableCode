@@ -24,7 +24,7 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "bootstrap": "^3.4.1",
     "crypto-js": "^4.0.0",
-    "moment": "^2.26.0",
+    "moment": "^2.29.2",
     "primeicons": "^4.0.0-rc.2",
     "primeng-lts": "^8.2.5",
     "rxjs": "^6.4.0",
